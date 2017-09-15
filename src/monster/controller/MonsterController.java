@@ -11,6 +11,7 @@ public class MonsterController
 		MarshmalloMonster guillermo = new MarshmalloMonster("Guillermo", 4, 4, 2.1, true);
 		System.out.println(guillermo);
 		System.out.println("I am feeling hungry, I am going to eat one of Guillermo's arms.");
-		
+		guillermo.setArmCount(guillermo.getArmCount() - 1);
+		System.out.println(guillermo);
 	}
 }

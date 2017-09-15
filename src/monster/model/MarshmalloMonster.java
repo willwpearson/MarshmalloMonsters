@@ -77,8 +77,8 @@ public class MarshmalloMonster
 	public String toString()
 	{
 		String description = "Yo soy un monstruo, me llamo es " + name + ", yo tengo " + eyeCount + " ojos y " ;
-		description += tentacleAmount + " 'tentacles', y yo tengo " + armCount + " brazos!. " + hasBloop + " habla tu ";
-		description += " si tengo bloop.";
+		description += tentacleAmount + " 'tentacles', y yo tengo " + armCount + " brazos! " + hasBloop + " habla tu ";
+		description += "si tengo bloop.";
 		return description;
 	}
 }
