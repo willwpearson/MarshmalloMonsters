@@ -16,7 +16,6 @@ public class MonsterController
 		System.out.println(guillermo);
 		
 		interactWithMonster(guillermo);
-		armEat(guillermo);
 	}
 	
 	private void interactWithMonster(MarshmalloMonster currentMonster)
@@ -27,18 +26,15 @@ public class MonsterController
 		currentMonster.setEyeCount(currentMonster.getEyeCount() - consumed);
 		System.out.println(currentMonster);
 		
+		
+		System.out.println(currentMonster.getName() + " wants to know how many arms you want to eat, please type in how many");
+		int eaten = myScanner.nextInt();
+		currentMonster.setArmCount(currentMonster.getArmCount() - eaten);
+		System.out.println(currentMonster);
+		
 		myScanner.close();
 		
 	}
 	
-	private void armEat(MarshmalloMonster myMonster)
-	{
-		Scanner armScanner = new Scanner(System.in);
-		System.out.println(myMonster.getName() + " wants to know how many arms you want to eat, please type in how many");
-		int eaten = armScanner.nextInt();
-		myMonster.setArmCount(myMonster.getArmCount() - eaten);
-		System.out.println(myMonster);
-		
-		armScanner.close();
-	}
+	
 }
