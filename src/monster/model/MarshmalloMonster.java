@@ -74,7 +74,6 @@ public class MarshmalloMonster
 		this.hasBloop = hasBloop;
 	}
 	
-	
 	public String toString()
 	{
 		String description = "Yo soy un monstruo, me llamo es " + name + ", yo tengo " + eyeCount + " ojos y " ;
