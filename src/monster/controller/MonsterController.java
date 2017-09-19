@@ -85,6 +85,8 @@ public class MonsterController
 		}
 		
 		
+		
+		
 		myScanner.close();
 		
 	}
