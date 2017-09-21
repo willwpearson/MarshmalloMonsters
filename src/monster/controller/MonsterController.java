@@ -63,11 +63,11 @@ public class MonsterController
 		//System.out.println(currentMonster.getArmCount();
 		//System.out.println("How many arms are you interested in eating? It has " + currentMonster.getArmCount());
 		int eyeEat = 0;
-		String eyes = popup.getResponse("How many eyes are you interested in eating? It has " + currentMonster.getEyeCount());
+		String eyeResponse = popup.getResponse("How many eyes are you interested in eating? It has " + currentMonster.getEyeCount());
 		
-		if(isValidInteger(eyes))
+		if(isValidInteger(eyeResponse))
 		{
-			eyeEat = Integer.parseInt(eyes);
+			eyeEat = Integer.parseInt(eyeResponse);
 		}
 		
 		if(eyeEat == 0)
