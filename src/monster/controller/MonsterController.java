@@ -18,7 +18,7 @@ public class MonsterController
 		MarshmalloMonster basic = new MarshmalloMonster();
 		//System.out.println(basic);
 		popup.displayText(basic.toString());
-		MarshmalloMonster guillermo = new MarshmalloMonster("Guillermo", 4, 4, 2.1, true);
+		MarshmalloMonster guillermo = new MarshmalloMonster("Guillermo", 4, 4, 2, true);
 		//System.out.println(guillermo);
 		popup.displayText(guillermo.toString());
 		//System.out.println("I am feeling hungry, I am going to eat one of Guillermo's arms.");
@@ -33,27 +33,15 @@ public class MonsterController
 	private void interactWithMonster(MarshmalloMonster currentMonster)
 	{
 		Scanner myScanner = new Scanner(System.in);
-		System.out.println(currentMonster.getName() + " wants to know how many tentacles you want eat, please type in how many");
-		double consumed = myScanner.nextDouble();
-		if (consumed == 0)
-		{
-			System.out.println("You don't want any???");
-		}
-		else if (consumed < 0)
-		{
-			System.out.println("You can't do that...");
-		}
-		else if (consumed > currentMonster.getTentacleAmount())
-		{
-			System.out.println("It doesn't have that many...");
-		}
-		else
-		{
+		//System.out.println(currentMonster.getName() + " wants to know how many tentacles you want eat, please type in how many");
+		int consumed;
+		String response = popup.getResponse(currentMonster.getName() + "wants to know how many tentacles you want to eat, please type in how many");
+		
+		consumed = Integer.parseInt(response);
+		
+		//int consumed = myScanner.nextInt();
 		currentMonster.setTentacleAmount(currentMonster.getTentacleAmount() - consumed);
 		System.out.println(currentMonster);
-		}
-		
-		
 		System.out.println("How many arms are you interested in eating? It has " + currentMonster.getArmCount());
 		int armEat = myScanner.nextInt();
 		
@@ -102,5 +90,21 @@ public class MonsterController
 		
 		myScanner.close();
 		
+	}
+	
+	private boolean isValidInteger(String sample)
+	{
+		boolean valid = false;
+		
+		try
+		{
+			Integer.parseInt(sample);
+			valid = true;
+		}
+		catch(NumberFormatException error)
+		{
+			popup.displayText("You need to input an int, " + sample + " is not valid.");
+		}
+		return valid;
 	}
 }

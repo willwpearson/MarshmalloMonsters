@@ -7,7 +7,7 @@ public class MarshmalloMonster
 	private String name;
 	private int eyeCount;
 	private int armCount;
-	private double tentacleAmount;
+	private int tentacleAmount;
 	private boolean hasBloop;
 	
 	public MarshmalloMonster()
@@ -15,7 +15,7 @@ public class MarshmalloMonster
 		//initializes everything to 0, false or null.
 	}
 	
-	public MarshmalloMonster(String name, int eyeCount, int arms, double tentacleCount, boolean hasBloop)
+	public MarshmalloMonster(String name, int eyeCount, int arms, int tentacleCount, boolean hasBloop)
 	{
 		this.name = name;
 		this.eyeCount = eyeCount;
@@ -39,7 +39,7 @@ public class MarshmalloMonster
 		return armCount;
 	}
 	
-	public double getTentacleAmount()
+	public int getTentacleAmount()
 	{
 		return tentacleAmount;
 	}
@@ -64,7 +64,7 @@ public class MarshmalloMonster
 		this.armCount = armCount;
 	}
 	
-	public void setTentacleAmount(double tentacleAmount)
+	public void setTentacleAmount(int tentacleAmount)
 	{
 		this.tentacleAmount = tentacleAmount;
 	}
