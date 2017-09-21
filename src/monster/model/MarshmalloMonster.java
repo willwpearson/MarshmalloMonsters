@@ -15,6 +15,7 @@ public class MarshmalloMonster
 		//initializes everything to 0, false or null.
 	}
 	
+	//initializes values to everything based on getters and setters.
 	public MarshmalloMonster(String name, int eyeCount, int arms, double tentacleCount, boolean hasBloop)
 	{
 		this.name = name;
@@ -24,6 +25,7 @@ public class MarshmalloMonster
 		this.hasBloop = hasBloop;
 	}
 	
+	//creates getters for every variable.
 	public String getName()
 	{
 		return name;
@@ -48,7 +50,7 @@ public class MarshmalloMonster
 	{
 		return hasBloop;
 	}
-	
+	//creates setters for every variable.
 	public void setName(String name)
 	{
 		this.name = name;
@@ -74,6 +76,7 @@ public class MarshmalloMonster
 		this.hasBloop = hasBloop;
 	}
 	
+	//creates basic description of monster.
 	public String toString()
 	{
 		String description = "Yo soy un monstruo, me llamo es " + name + ", yo tengo " + eyeCount + " ojos y " ;

@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 
 public class MonsterDisplay
 {
+	//creates popup windows to be used when called.
 	public void displayText(String textToDisplay)
 	{
 		JOptionPane.showMessageDialog(null, textToDisplay);

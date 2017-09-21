@@ -8,11 +8,12 @@ public class MonsterController
 {
 	private MonsterDisplay popup;
 	
+	//creates method that calls on MonsterDisplay popups.
 	public MonsterController()
 	{
 		popup = new MonsterDisplay();
 	}
-	
+	//creates display for the first few popups.
 	public void start()
 	{
 		MarshmalloMonster basic = new MarshmalloMonster();
@@ -29,7 +30,7 @@ public class MonsterController
 		
 		interactWithMonster(guillermo);
 	}
-	
+	//creates display and popups based on user input.
 	private void interactWithMonster(MarshmalloMonster currentMonster)
 	{
 		Scanner myScanner = new Scanner(System.in);
@@ -37,11 +38,13 @@ public class MonsterController
 		int consumed = 0;
 		String response = popup.getResponse(currentMonster.getName() + " wants to know how many arms you want to eat, please type in how many");
 		
+		//checks if response is Integer.
 		if(isValidInteger(response))
 		{
 			consumed = Integer.parseInt(response);
 		}
 		
+		//creates popups based on what the user input was.
 		if(consumed == 0)
 		{
 			popup.displayText("Not hungry???");
@@ -65,11 +68,13 @@ public class MonsterController
 		int eyeEat = 0;
 		String eyeResponse = popup.getResponse("How many eyes are you interested in eating? It has " + currentMonster.getEyeCount());
 		
+		//checks if response is integer.
 		if(isValidInteger(eyeResponse))
 		{
 			eyeEat = Integer.parseInt(eyeResponse);
 		}
 		
+		//creates popups based on what the user input was.
 		if(eyeEat == 0)
 		{
 			popup.displayText("Really not hungry???");
@@ -93,11 +98,13 @@ public class MonsterController
 		String tentacleResponse= popup.getResponse("How many tentacles are you interested in eating? It has " + currentMonster.getTentacleAmount());
 		double food = 0.0;
 		
+		//checks if user input a Double.
 		if(isValidDouble(tentacleResponse))
 		{
 			food = Double.parseDouble(tentacleResponse);
 		}
 		
+		//creates popups based on what the user input was.
 		if(food == 0)
 		{
 			popup.displayText("Not ever hungry???");
@@ -122,7 +129,7 @@ public class MonsterController
 		myScanner.close();
 		
 	}
-	
+	//creates helper method for Int
 	private boolean isValidInteger(String sample)
 	{
 		boolean valid = false;
@@ -138,7 +145,7 @@ public class MonsterController
 		}
 		return valid;
 	}
-	
+	//creates helper method for Double
 	private boolean isValidDouble(String sampleDouble)
 	{
 		boolean valid = false;
@@ -154,7 +161,7 @@ public class MonsterController
 		}
 		return valid;
 	}
-	
+	//creates helper method for Boolean
 	private boolean isValidBoolean(String sampleBoolean)
 	{
 		boolean valid = false;
