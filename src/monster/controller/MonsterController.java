@@ -42,10 +42,25 @@ public class MonsterController
 			consumed = Integer.parseInt(response);
 		}
 		
+		if(consumed == 0)
+		{
+			popup.displayText("Not hungry???");
+		}
+		else if(consumed < 0)
+		{
+			popup.displayText("You can't do that.");
+		}
+		else if(consumed > currentMonster.getArmCount())
+		{
+			popup.displayText("You can't eat more than what he has.");
+		}
+		else
+		{
+			currentMonster.setArmCount(currentMonster.getArmCount() - consumed);
+			popup.displayText(currentMonster.toString());
+		}
 		//int consumed = myScanner.nextInt();
-		currentMonster.setArmCount(currentMonster.getArmCount() - consumed);
-		//System.out.println(currentMonster);
-		popup.displayText(currentMonster.toString());
+		//System.out.println(currentMonster.getArmCount();
 		//System.out.println("How many arms are you interested in eating? It has " + currentMonster.getArmCount());
 		int eyeEat = 0;
 		String eyes = popup.getResponse("How many eyes are you interested in eating? It has " + currentMonster.getEyeCount());
@@ -54,9 +69,25 @@ public class MonsterController
 		{
 			eyeEat = Integer.parseInt(eyes);
 		}
-		currentMonster.setEyeCount(currentMonster.getEyeCount() - eyeEat);
+		
+		if(eyeEat == 0)
+		{
+			popup.displayText("Really not hungry???");
+		}
+		else if(eyeEat < 0)
+		{
+			popup.displayText("C'mon, you can't do that...");
+		}
+		else if(eyeEat > currentMonster.getEyeCount())
+		{
+			popup.displayText("dood, c'mon...");
+		}
+		else
+		{
+			currentMonster.setEyeCount(currentMonster.getEyeCount() - eyeEat);
+			popup.displayText("OK, now it has this many eyes: " + currentMonster.getEyeCount());
+		}
 		//System.out.println("OK, now it has this many arms: " + currentMonster.getArmCount());
-		popup.displayText("OK, now it has this many eyes: " + currentMonster.getEyeCount());
 		
 		//System.out.println("How many eyes are you interested in eating? It has " + currentMonster.getEyeCount());
 		String tentacleResponse= popup.getResponse("How many tentacles are you interested in eating? It has " + currentMonster.getTentacleAmount());
@@ -64,11 +95,27 @@ public class MonsterController
 		
 		if(isValidDouble(tentacleResponse))
 		{
-			food = Integer.parseDouble(tentacleResponse);
+			food = Double.parseDouble(tentacleResponse);
 		}
-		currentMonster.setTentacleAmount(currentMonster.getTentacleAmount() - food);
+		
+		if(food == 0)
+		{
+			popup.displayText("Not ever hungry???");
+		}
+		else if(food < 0)
+		{
+			popup.displayText("You really should have this by now");
+		}
+		else if(food > currentMonster.getTentacleAmount())
+		{
+			popup.displayText("xD nope");
+		}
+		else
+		{
+			currentMonster.setTentacleAmount(currentMonster.getTentacleAmount() - food);
+			popup.displayText("OK, now it has this many tentacles: " + currentMonster.getTentacleAmount());
+		}
 		//System.out.println("OK, now it has this many eyes: " + currentMonster.getEyeCount());
-		popup.displayText("OK, now it has this many tentacles: " + currentMonster.getTentacleAmount()));
 		
 		popup.displayText("Hi there ready to play???");
 		
@@ -108,4 +155,20 @@ public class MonsterController
 		return valid;
 	}
 	
+	private boolean isValidBoolean(String sampleBoolean)
+	{
+		boolean valid = false;
+		
+		try
+		{
+			Boolean.parseBoolean(sampleBoolean);
+			valid = true;
+		}
+		catch(NumberFormatException error)
+		{
+			popup.displayText("Type in a boolean value" + sampleBoolean + "does not count.");
+		}
+		
+		return valid;
+	}
 }
