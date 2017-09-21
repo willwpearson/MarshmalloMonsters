@@ -34,59 +34,43 @@ public class MonsterController
 	{
 		Scanner myScanner = new Scanner(System.in);
 		//System.out.println(currentMonster.getName() + " wants to know how many tentacles you want eat, please type in how many");
-		int consumed;
-		String response = popup.getResponse(currentMonster.getName() + "wants to know how many tentacles you want to eat, please type in how many");
+		int consumed = 0;
+		String response = popup.getResponse(currentMonster.getName() + " wants to know how many arms you want to eat, please type in how many");
 		
-		consumed = Integer.parseInt(response);
+		if(isValidInteger(response))
+		{
+			consumed = Integer.parseInt(response);
+		}
 		
 		//int consumed = myScanner.nextInt();
-		currentMonster.setTentacleAmount(currentMonster.getTentacleAmount() - consumed);
-		System.out.println(currentMonster);
-		System.out.println("How many arms are you interested in eating? It has " + currentMonster.getArmCount());
-		int armEat = myScanner.nextInt();
+		currentMonster.setArmCount(currentMonster.getArmCount() - consumed);
+		//System.out.println(currentMonster);
+		popup.displayText(currentMonster.toString());
+		//System.out.println("How many arms are you interested in eating? It has " + currentMonster.getArmCount());
+		int eyeEat = 0;
+		String eyes = popup.getResponse("How many eyes are you interested in eating? It has " + currentMonster.getEyeCount());
 		
-		if(armEat == 0)
+		if(isValidInteger(eyes))
 		{
-			System.out.println("Not hungry? Oh so sad... ");
+			eyeEat = Integer.parseInt(eyes);
 		}
-		else if(armEat < 0)
-		{
-			System.out.println("Reality is hard for you - it is impossible to eat a negative amount");
-		}
-		else if(armEat > currentMonster.getArmCount())
-		{
-			System.out.println("You are not allowed to eat more than exist on him xD ");
-		}
-		else
-		{
-			currentMonster.setArmCount(currentMonster.getArmCount() - armEat);
-			System.out.println("OK, now it has this many arms: " + currentMonster.getArmCount());
-		}
+		currentMonster.setEyeCount(currentMonster.getEyeCount() - eyeEat);
+		//System.out.println("OK, now it has this many arms: " + currentMonster.getArmCount());
+		popup.displayText("OK, now it has this many eyes: " + currentMonster.getEyeCount());
 		
-		System.out.println("How many eyes are you interested in eating? It has " + currentMonster.getEyeCount());
-		int eyeEat = myScanner.nextInt();
+		//System.out.println("How many eyes are you interested in eating? It has " + currentMonster.getEyeCount());
+		String tentacleResponse= popup.getResponse("How many tentacles are you interested in eating? It has " + currentMonster.getTentacleAmount());
+		double food = 0.0;
 		
-		if(eyeEat == 0)
+		if(isValidDouble(tentacleResponse))
 		{
-			System.out.println("Really not hungry???" );
+			food = Integer.parseDouble(tentacleResponse);
 		}
-		else if(eyeEat < 0)
-		{
-			System.out.println("Come on, you should know better by now");
-		}
-		else if(eyeEat > currentMonster.getEyeCount())
-		{
-			System.out.println("I thought you would have this by now...");
-		}
-		else
-		{
-			currentMonster.setEyeCount(currentMonster.getEyeCount() - eyeEat);
-			System.out.println("OK, now it has this many eyes: " + currentMonster.getEyeCount());
-		}
+		currentMonster.setTentacleAmount(currentMonster.getTentacleAmount() - food);
+		//System.out.println("OK, now it has this many eyes: " + currentMonster.getEyeCount());
+		popup.displayText("OK, now it has this many tentacles: " + currentMonster.getTentacleAmount()));
 		
 		popup.displayText("Hi there ready to play???");
-		String answer = popup.getResponse("What is the air speed of a coconut laden swallow?");
-		System.out.println(answer);
 		
 		myScanner.close();
 		
@@ -107,4 +91,21 @@ public class MonsterController
 		}
 		return valid;
 	}
+	
+	private boolean isValidDouble(String sampleDouble)
+	{
+		boolean valid = false;
+		
+		try
+		{
+			Double.parseDouble(sampleDouble);
+			valid = true;
+		}
+		catch(NumberFormatException error)
+		{
+			popup.displayText("You need to input a double, " + sampleDouble + "is not valid.");
+		}
+		return valid;
+	}
+	
 }
