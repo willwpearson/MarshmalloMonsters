@@ -16,10 +16,19 @@ public class MonsterController
 	//creates display for the first few popups.
 	public void start()
 	{
+		int count = 0;
+		while(count < 10)
+		{
+			popup.displayText("Am I not the coolest???");
+			count += 2;
+		}
+		
+		
+		
 		MarshmalloMonster basic = new MarshmalloMonster();
 		//System.out.println(basic);
 		popup.displayText(basic.toString());
-		MarshmalloMonster guillermo = new MarshmalloMonster("Guillermo", 4, 4, 2, true);
+		MarshmalloMonster guillermo = new MarshmalloMonster("Guillermo", 4, 4, 2.1, true);
 		//System.out.println(guillermo);
 		popup.displayText(guillermo.toString());
 		//System.out.println("I am feeling hungry, I am going to eat one of Guillermo's arms.");
@@ -123,8 +132,6 @@ public class MonsterController
 			popup.displayText("OK, now it has this many tentacles: " + currentMonster.getTentacleAmount());
 		}
 		//System.out.println("OK, now it has this many eyes: " + currentMonster.getEyeCount());
-		
-		popup.displayText("Hi there ready to play???");
 		
 		myScanner.close();
 		
