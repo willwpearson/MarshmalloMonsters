@@ -13,17 +13,21 @@ public class MonsterController
 	{
 		popup = new MonsterDisplay();
 	}
-	//creates display for the first few popups.
+	//creates display for the first few popups. Samples of coding with loops.
 	public void start()
 	{
-		int count = 0;
-		while(count < 10)
-		{
-			popup.displayText("Am I not the coolest???");
-			count += 2;
-		}
+//		int count = 0;
+//		while(count < 10)
+//		{
+//			popup.displayText("Am I not the coolest???");
+//			count += 2;
+//		}
 		
-		
+//		for(int loop = 0; loop < 10; loop += 1)
+//		{
+//			popup.displayText("This is loop #" + (loop + 1) + " of 10.");
+//		}
+//		
 		
 		MarshmalloMonster basic = new MarshmalloMonster();
 		//System.out.println(basic);
