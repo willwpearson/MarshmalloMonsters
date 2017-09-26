@@ -49,13 +49,22 @@ public class MonsterController
 		Scanner myScanner = new Scanner(System.in);
 		//System.out.println(currentMonster.getName() + " wants to know how many tentacles you want eat, please type in how many");
 		int consumed = 0;
-		String response = popup.getResponse(currentMonster.getName() + " wants to know how many arms you want to eat, please type in how many");
+		String response = popup.getResponse(currentMonster.getName() + " wants to know how many arms you want to eat, please type in how many.");
 		
-		//checks if response is Integer.
-		if(isValidInteger(response))
+		//checks if response is an Integer.
+		while(!isValidInteger(response))
 		{
-			consumed = Integer.parseInt(response);
+			popup.displayText("grrr type in a better answer next time.");
+			response = popup.getResponse(currentMonster.getName() + " wants to know how many arms you want to eat, please type in how many.");
 		}
+		
+		//sets consumed to response if response is integer.
+//		if(isValidInteger(response))
+//		{
+//			consumed = Integer.parseInt(response);
+//		}
+		
+		consumed = Integer.parseInt(response);
 		
 		//creates popups based on what the user input was.
 		if(consumed == 0)
@@ -64,11 +73,11 @@ public class MonsterController
 		}
 		else if(consumed < 0)
 		{
-			popup.displayText("You can't do that.");
+			popup.displayText("You can't do that. Invitation Revoked.");
 		}
 		else if(consumed > currentMonster.getArmCount())
 		{
-			popup.displayText("You can't eat more than what he has.");
+			popup.displayText("You can't eat more than what he has. Invitation Revoked.");
 		}
 		else
 		{
@@ -81,11 +90,19 @@ public class MonsterController
 		int eyeEat = 0;
 		String eyeResponse = popup.getResponse("How many eyes are you interested in eating? It has " + currentMonster.getEyeCount());
 		
-		//checks if response is integer.
-		if(isValidInteger(eyeResponse))
+		while(!isValidInteger(eyeResponse))
 		{
-			eyeEat = Integer.parseInt(eyeResponse);
+			popup.displayText("Type in a better answer next time.");
+			eyeResponse = popup.getResponse("How many eyes are you interested in eating? It has " + currentMonster.getEyeCount());
 		}
+		
+		//sets eyeEat to eyeResponse if it is integer.
+//		if(isValidInteger(eyeResponse))
+//		{
+//			eyeEat = Integer.parseInt(eyeResponse);
+//		}
+		
+		eyeEat = Integer.parseInt(eyeResponse);
 		
 		//creates popups based on what the user input was.
 		if(eyeEat == 0)
@@ -94,11 +111,11 @@ public class MonsterController
 		}
 		else if(eyeEat < 0)
 		{
-			popup.displayText("C'mon, you can't do that...");
+			popup.displayText("C'mon, you can't do that... Invitation Revoked.");
 		}
 		else if(eyeEat > currentMonster.getEyeCount())
 		{
-			popup.displayText("dood, c'mon...");
+			popup.displayText("dood, c'mon... Invitation Revoked");
 		}
 		else
 		{
@@ -111,11 +128,19 @@ public class MonsterController
 		String tentacleResponse= popup.getResponse("How many tentacles are you interested in eating? It has " + currentMonster.getTentacleAmount());
 		double food = 0.0;
 		
-		//checks if user input a Double.
-		if(isValidDouble(tentacleResponse))
+		while(!isValidDouble(tentacleResponse))
 		{
-			food = Double.parseDouble(tentacleResponse);
+			popup.displayText("Type in a better answer");
+			tentacleResponse = popup.getResponse("How many tentacles are you interested in eating? It has " + currentMonster.getTentacleAmount());
 		}
+		
+		//sets food to tentacleResponse if it is Double.
+//		if(isValidDouble(tentacleResponse))
+//		{
+//			food = Double.parseDouble(tentacleResponse);
+//		}
+		
+		food = Double.parseDouble(tentacleResponse);
 		
 		//creates popups based on what the user input was.
 		if(food == 0)
@@ -124,11 +149,11 @@ public class MonsterController
 		}
 		else if(food < 0)
 		{
-			popup.displayText("You really should have this by now");
+			popup.displayText("You really should have this by now. Invitation Revoked.");
 		}
 		else if(food > currentMonster.getTentacleAmount())
 		{
-			popup.displayText("xD nope");
+			popup.displayText("xD nope. Invitation Revoked.");
 		}
 		else
 		{
