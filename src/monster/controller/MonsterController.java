@@ -3,15 +3,20 @@ package monster.controller;
 import monster.model.MarshmalloMonster;
 import java.util.Scanner;
 import monster.view.MonsterDisplay;
+import java.util.List;
+import java.util.ArrayList;
+
 
 public class MonsterController
 {
 	private MonsterDisplay popup;
+	private List<MarshmalloMonster> monsterList;
 	
 	//creates method that calls on MonsterDisplay popups.
 	public MonsterController()
 	{
 		popup = new MonsterDisplay();
+		monsterList = new ArrayList<MarshmalloMonster>();
 	}
 	//creates display for the first few popups. Samples of coding with loops.
 	public void start()
@@ -40,6 +45,10 @@ public class MonsterController
 		guillermo.setArmCount(guillermo.getArmCount() - 1);
 		//System.out.println(guillermo);
 		popup.displayText(guillermo.toString());
+		
+		monsterList.add(basic);
+		monsterList.add(guillermo);
+		
 		
 		interactWithMonster(guillermo);
 	}
