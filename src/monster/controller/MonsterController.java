@@ -48,10 +48,31 @@ public class MonsterController
 		
 		monsterList.add(basic);
 		monsterList.add(guillermo);
+		useList();
 		
 		
 		interactWithMonster(guillermo);
 	}
+	
+	private void useList()
+	{
+		for(int index = 0; index < monsterList.size(); index ++)
+		{
+			MarshmalloMonster currentMonster = monsterList.get(index);
+			popup.displayText(currentMonster.getName());
+			String updateName = popup.getResponse("What should my new name be?");
+			currentMonster.setName(updateName);
+			popup.displayText("My new name is " + currentMonster.getName());
+		}
+		for(MarshmalloMonster current : monsterList)
+		{
+			popup.displayText("My name is " + current.getName());
+		}
+		
+		
+	}
+	
+	
 	//creates display and popups based on user input.
 	private void interactWithMonster(MarshmalloMonster currentMonster)
 	{
